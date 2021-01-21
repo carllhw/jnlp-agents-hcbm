@@ -23,7 +23,9 @@ RUN apt-get update; \
     python3-dev \
     ttf-wqy-microhei \
     ttf-wqy-zenhei \
+    unzip \
     xfonts-wqy \
+    zip \
     zlib1g-dev; \
     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -; \
     echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list; \
