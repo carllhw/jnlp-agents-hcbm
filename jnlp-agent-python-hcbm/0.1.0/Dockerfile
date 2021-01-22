@@ -36,5 +36,3 @@ RUN apt-get update; \
 
 COPY requirements.txt /opt
 RUN pip3 install --no-cache-dir -r /opt/requirements.txt
-
-USER jenkins
