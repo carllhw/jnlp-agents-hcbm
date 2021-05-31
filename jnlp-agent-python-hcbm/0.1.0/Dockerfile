@@ -7,7 +7,6 @@ RUN echo ${TIMEZONE} > /etc/timezone; \
     rm /etc/localtime; \
     dpkg-reconfigure -f noninteractive tzdata
 
-ARG CHROME_VERSION="google-chrome-stable"
 RUN apt-get update; \
     apt-get install -y \
     build-essential \
@@ -27,11 +26,6 @@ RUN apt-get update; \
     xfonts-wqy \
     zip \
     zlib1g-dev; \
-    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -; \
-    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list; \
-    apt-get update; \
-    apt-get -y install --no-install-recommends ${CHROME_VERSION:-google-chrome-stable}; \
-    rm /etc/apt/sources.list.d/google-chrome.list; \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /opt
